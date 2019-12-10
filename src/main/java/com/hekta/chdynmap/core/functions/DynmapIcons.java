@@ -26,7 +26,7 @@ import com.laytonsmith.core.natives.interfaces.Mixed;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
@@ -147,13 +147,13 @@ public class DynmapIcons {
 				label = args[1].val();
 				file = new File(t.file().getParentFile(), args[2].val());
 			}
-			if (!Security.CheckSecurity(file.getAbsolutePath())) {
-				throw new CRESecurityException("You do not have permission to access the file '" + file.getAbsolutePath() + "'", t);
-			}
 			FileInputStream image;
 			try {
+				if (!Security.CheckSecurity(file.getAbsolutePath())) {
+					throw new CRESecurityException("You do not have permission to access the file '" + file.getAbsolutePath() + "'", t);
+				}
 				image = new FileInputStream(file);
-			} catch (FileNotFoundException exception) {
+			} catch (IOException exception) {
 				throw new CREIOException(exception.getMessage(), t);
 			}
 			//create icon
@@ -247,13 +247,13 @@ public class DynmapIcons {
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
 			MCDynmapIcon icon = CHDynmapStatic.getIcon(args[0].val(), t);
 			File file = new File(t.file().getParentFile(), args[1].val());
-			if (!Security.CheckSecurity(file.getAbsolutePath())) {
-				throw new CRESecurityException("You do not have permission to access the file '" + file.getAbsolutePath() + "'", t);
-			}
 			FileInputStream image;
 			try {
+				if (!Security.CheckSecurity(file.getAbsolutePath())) {
+					throw new CRESecurityException("You do not have permission to access the file '" + file.getAbsolutePath() + "'", t);
+				}
 				image = new FileInputStream(file);
-			} catch (FileNotFoundException exception) {
+			} catch (IOException exception) {
 				throw new CREIOException(exception.getMessage(), t);
 			}
 			icon.setImage(image);
