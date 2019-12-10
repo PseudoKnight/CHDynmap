@@ -252,6 +252,11 @@ public class DynmapPlayers {
 		}
 
 		@Override
+		public Integer[] numArgs() {
+			return new Integer[]{1, 2};
+		}
+
+		@Override
 		public String docs() {
 			return "void {[playerName], otherPlayerName} Returns if the player can see the other player."
 					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
