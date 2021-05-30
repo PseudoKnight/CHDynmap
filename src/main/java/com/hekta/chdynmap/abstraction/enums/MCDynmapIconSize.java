@@ -6,7 +6,7 @@ import com.laytonsmith.annotations.MEnum;
  *
  * @author Hekta
  */
-@MEnum("IconSize")
+@MEnum("com.hekta.chdynmap.IconSize")
 public enum MCDynmapIconSize {
 	MARKER_8x8("8x8"),
 	MARKER_16x16("16x16"),
