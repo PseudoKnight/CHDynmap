@@ -662,13 +662,14 @@ public class DynmapMarkerSets {
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
 			MCDynmapMarkerSet set = CHDynmapStatic.getMarkerSet(args[0].val(), t);
-			Construct showLabels = Static.resolveConstruct(args[1].val(), t);
-			if (showLabels instanceof CBoolean) {
-				set.setlabelIsShown(ArgumentValidation.getBooleanObject(showLabels, t));
-			} else if (showLabels instanceof CNull) {
+			if(args[1] instanceof CNull) {
 				set.setlabelIsShown(null);
 			} else {
-				throw new CRECastException("Value should be a boolean or null.", t);
+				try {
+					set.setlabelIsShown(ArgumentValidation.getBooleanObject(args[1], t));
+				} catch (CRECastException ex) {
+					throw new CRECastException("Value should be a boolean or null.", t);
+				}
 			}
 			return CVoid.VOID;
 		}
