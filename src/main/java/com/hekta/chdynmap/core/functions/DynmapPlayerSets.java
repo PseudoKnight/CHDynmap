@@ -182,14 +182,14 @@ public class DynmapPlayerSets {
 			//persistent
 			boolean persistent;
 			if (keys.contains("persistent")) {
-				persistent = ArgumentValidation.getBoolean(optionArray.get("persistent", t), t);
+				persistent = ArgumentValidation.getBooleanObject(optionArray.get("persistent", t), t);
 			} else {
 				persistent = false;
 			}
 			//symmetric
 			boolean symmetric;
 			if (keys.contains("symmetric")) {
-				symmetric = ArgumentValidation.getBoolean(optionArray.get("symmetric", t), t);
+				symmetric = ArgumentValidation.getBooleanObject(optionArray.get("symmetric", t), t);
 			} else {
 				symmetric = false;
 			}
@@ -362,11 +362,11 @@ public class DynmapPlayerSets {
 					throw new CREPlayerOfflineException("No player was specified!", t);
 				} else {
 					player = psender;
-					isInSet = ArgumentValidation.getBoolean(args[1], t);
+					isInSet = ArgumentValidation.getBooleanObject(args[1], t);
 				}
 			} else {
 				player = Static.getServer().getOfflinePlayer(args[1].val());
-				isInSet = ArgumentValidation.getBoolean(args[2], t);
+				isInSet = ArgumentValidation.getBooleanObject(args[2], t);
 			}
 			if (isInSet) {
 				if (set.isPlayerInSet(player)) {
@@ -436,7 +436,7 @@ public class DynmapPlayerSets {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getPlayerSet(args[0].val(), t).setSymmetric(ArgumentValidation.getBoolean(args[1], t));
+			CHDynmapStatic.getPlayerSet(args[0].val(), t).setSymmetric(ArgumentValidation.getBooleanObject(args[1], t));
 			return CVoid.VOID;
 		}
 	}

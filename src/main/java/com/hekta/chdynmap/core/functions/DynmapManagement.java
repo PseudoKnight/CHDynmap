@@ -169,7 +169,7 @@ public class DynmapManagement {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getDynmapAPI(t).setPauseFullRadiusRenders(ArgumentValidation.getBoolean(args[0], t));
+			CHDynmapStatic.getDynmapAPI(t).setPauseFullRadiusRenders(ArgumentValidation.getBooleanObject(args[0], t));
 			return CVoid.VOID;
 		}
 	}
@@ -258,7 +258,7 @@ public class DynmapManagement {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getDynmapAPI(t).setPauseUpdateRenders(ArgumentValidation.getBoolean(args[0], t));
+			CHDynmapStatic.getDynmapAPI(t).setPauseUpdateRenders(ArgumentValidation.getBooleanObject(args[0], t));
 			return CVoid.VOID;
 		}
 	}
@@ -303,7 +303,7 @@ public class DynmapManagement {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getDynmapAPI(t).setChatToWebProcessingEnabled(ArgumentValidation.getBoolean(args[0], t));
+			CHDynmapStatic.getDynmapAPI(t).setChatToWebProcessingEnabled(ArgumentValidation.getBooleanObject(args[0], t));
 			return CVoid.VOID;
 		}
 	}

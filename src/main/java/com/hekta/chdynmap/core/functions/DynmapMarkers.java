@@ -249,14 +249,14 @@ public class DynmapMarkers {
 			//label_is_html
 			boolean labelIsHTML;
 			if (keys.contains("label_is_html")) {
-				labelIsHTML = ArgumentValidation.getBoolean(optionArray.get("label_is_html", t), t);
+				labelIsHTML = ArgumentValidation.getBooleanObject(optionArray.get("label_is_html", t), t);
 			} else {
 				labelIsHTML = false;
 			}
 			//persistent
 			boolean isPersistent;
 			if (keys.contains("persistent")) {
-				isPersistent = ArgumentValidation.getBoolean(optionArray.get("persistent", t), t);
+				isPersistent = ArgumentValidation.getBooleanObject(optionArray.get("persistent", t), t);
 			} else {
 				isPersistent = false;
 			}
@@ -445,10 +445,10 @@ public class DynmapMarkers {
 			MCDynmapMarker marker = CHDynmapStatic.getMarker(args[0].val(), args[1].val(), t);
 			switch (marker.getType()) {
 				case AREA:
-					((MCDynmapAreaMarker) marker).setBoosted(ArgumentValidation.getBoolean(args[2], t));
+					((MCDynmapAreaMarker) marker).setBoosted(ArgumentValidation.getBooleanObject(args[2], t));
 					break;
 				case CIRCLE:
-					((MCDynmapCircleMarker) marker).setBoosted(ArgumentValidation.getBoolean(args[2], t));
+					((MCDynmapCircleMarker) marker).setBoosted(ArgumentValidation.getBooleanObject(args[2], t));
 					break;
 				default:
 					throw new CRENotFoundException("There is no existing area or circle markers with this id.", t);
@@ -817,7 +817,7 @@ public class DynmapMarkers {
 			if (args.length == 3) {
 				isHTML = false;
 			} else {
-				isHTML = ArgumentValidation.getBoolean(args[3], t);
+				isHTML = ArgumentValidation.getBooleanObject(args[3], t);
 			}
 			marker.setLabel(args[2].val(), isHTML);
 			return CVoid.VOID;

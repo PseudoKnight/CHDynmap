@@ -126,11 +126,11 @@ public class DynmapPlayers {
 					throw new CREPlayerOfflineException("No player was specified!", t);
 				} else {
 					player = psender;
-					isVisible = ArgumentValidation.getBoolean(args[0], t);
+					isVisible = ArgumentValidation.getBooleanObject(args[0], t);
 				}
 			} else {
 				player = Static.getServer().getOfflinePlayer(args[0].val());
-				isVisible = ArgumentValidation.getBoolean(args[1], t);
+				isVisible = ArgumentValidation.getBooleanObject(args[1], t);
 			}
 			CHDynmapStatic.getDynmapAPI(t).setPlayerVisiblity(player, isVisible);
 			return CVoid.VOID;
@@ -173,16 +173,16 @@ public class DynmapPlayers {
 					throw new CREPlayerOfflineException("No player was specified!", t);
 				} else {
 					player = psender;
-					isVisible = ArgumentValidation.getBoolean(args[0], t);
+					isVisible = ArgumentValidation.getBooleanObject(args[0], t);
 					plugin = "CommandHelper";
 				}
 			} else if (args.length == 2) {
 				player = Static.getServer().getOfflinePlayer(args[0].val());
-				isVisible = ArgumentValidation.getBoolean(args[1], t);
+				isVisible = ArgumentValidation.getBooleanObject(args[1], t);
 				plugin = "CommandHelper";
 			} else {
 				player = Static.getServer().getOfflinePlayer(args[0].val());
-				isVisible = ArgumentValidation.getBoolean(args[1], t);
+				isVisible = ArgumentValidation.getBooleanObject(args[1], t);
 				plugin = args[2].val();
 			}
 			CHDynmapStatic.getDynmapAPI(t).assertPlayerVisibility(player, isVisible, plugin);
@@ -226,16 +226,16 @@ public class DynmapPlayers {
 					throw new CREPlayerOfflineException("No player was specified!", t);
 				} else {
 					player = psender;
-					isInvisible = ArgumentValidation.getBoolean(args[0], t);
+					isInvisible = ArgumentValidation.getBooleanObject(args[0], t);
 					plugin = "CommandHelper";
 				}
 			} else if (args.length == 2) {
 				player = Static.getServer().getOfflinePlayer(args[0].val());
-				isInvisible = ArgumentValidation.getBoolean(args[1], t);
+				isInvisible = ArgumentValidation.getBooleanObject(args[1], t);
 				plugin = "CommandHelper";
 			} else {
 				player = Static.getServer().getOfflinePlayer(args[0].val());
-				isInvisible = ArgumentValidation.getBoolean(args[1], t);
+				isInvisible = ArgumentValidation.getBooleanObject(args[1], t);
 				plugin = args[2].val();
 			}
 			CHDynmapStatic.getDynmapAPI(t).assertPlayerInvisibility(player, isInvisible, plugin);

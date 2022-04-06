@@ -9,6 +9,8 @@ import com.laytonsmith.core.Static;
 import com.laytonsmith.core.extensions.AbstractExtension;
 import com.laytonsmith.core.extensions.MSExtension;
 
+import java.util.logging.Level;
+
 /**
  *
  * @author Hekta
@@ -18,7 +20,7 @@ public final class CHDynmap extends AbstractExtension {
 
 	public static final String DYNMAP_NAME = "Dynmap";
 
-	private static final Version VERSION = new SimpleVersion(1, 1, 5);
+	private static final Version VERSION = new SimpleVersion(1, 1, 6);
 
 	private static MCDynmapAPI _dynmap;
 
@@ -32,7 +34,7 @@ public final class CHDynmap extends AbstractExtension {
 		_dynmap = CHDynmapStaticLayer.getDynmap();
 		if (_dynmap != null) {
 			BukkitDynmapListener.register();
-			System.out.println(String.format("%s %s loaded.", getName(), VERSION));
+			Static.getLogger().log(Level.INFO, String.format("%s %s loaded.", getName(), VERSION));
 		} else {
 			Static.getLogger().severe(String.format("Plugin %s seems to be missing, none of the %s functions will work.", DYNMAP_NAME, getName()));
 		}
@@ -42,7 +44,7 @@ public final class CHDynmap extends AbstractExtension {
 	public void onShutdown() {
 		if (_dynmap != null) {
 			BukkitDynmapListener.unregister();
-			System.out.println(String.format("%s unloaded.", getName()));
+			Static.getLogger().log(Level.INFO, String.format("%s unloaded.", getName()));
 		}
 	}
 

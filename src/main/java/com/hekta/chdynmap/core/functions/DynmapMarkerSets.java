@@ -5,6 +5,7 @@ import com.hekta.chdynmap.abstraction.MCDynmapMarkerSet;
 import com.hekta.chdynmap.core.CHDynmapStatic;
 import com.laytonsmith.PureUtilities.Version;
 import com.laytonsmith.annotations.api;
+import com.laytonsmith.core.ArgumentValidation;
 import com.laytonsmith.core.MSVersion;
 import com.laytonsmith.core.Optimizable;
 import com.laytonsmith.core.Static;
@@ -190,14 +191,14 @@ public class DynmapMarkerSets {
 			if (args.length == 1) {
 				optionArray = new CArray(t);
 			} else {
-				optionArray = Static.getArray(args[1], t);
+				optionArray = ArgumentValidation.getArray(args[1], t);
 			}
 			Set<String> keys = optionArray.stringKeySet();
 			//set optional values
 			//allowed_icons
 			MCDynmapIcon[] allowedIcons;
 			if (keys.contains("allowed_icons")) {
-				CArray givenAllowedIcons = Static.getArray(optionArray.get("allowed_icons", t), t);
+				CArray givenAllowedIcons = ArgumentValidation.getArray(optionArray.get("allowed_icons", t), t);
 				if (givenAllowedIcons.inAssociativeMode()) {
 					throw new CRECastException("The array must not be associative.", t);
 				}
@@ -220,7 +221,7 @@ public class DynmapMarkerSets {
 			//persistent
 			boolean persistent;
 			if (keys.contains("persistent")) {
-				persistent = Static.getBoolean(optionArray.get("persistent", t), t);
+				persistent = ArgumentValidation.getBooleanObject(optionArray.get("persistent", t), t);
 			} else {
 				persistent = false;
 			}
@@ -321,7 +322,7 @@ public class DynmapMarkerSets {
 				throw new CREPluginInternalException("The markerset is not restricted.", t);
 			}
 			MCDynmapIcon icon = CHDynmapStatic.getIcon(args[1].val(), t);
-			if (Static.getBoolean(args[2], t)) {
+			if (ArgumentValidation.getBooleanObject(args[2], t)) {
 				if (set.iconIsAllowed(icon)) {
 					throw new CREPluginInternalException("The icon is already allowed for the marketset.", t);
 				}
@@ -414,7 +415,7 @@ public class DynmapMarkerSets {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getMarkerSet(args[0].val(), t).setHiddenByDefault(Static.getBoolean(args[1], t));
+			CHDynmapStatic.getMarkerSet(args[0].val(), t).setHiddenByDefault(ArgumentValidation.getBooleanObject(args[1], t));
 			return CVoid.VOID;
 		}
 	}
@@ -515,7 +516,7 @@ public class DynmapMarkerSets {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getMarkerSet(args[0].val(), t).setLayerPriority(Static.getInt32(args[1], t));
+			CHDynmapStatic.getMarkerSet(args[0].val(), t).setLayerPriority(ArgumentValidation.getInt32(args[1], t));
 			return CVoid.VOID;
 		}
 	}
@@ -556,7 +557,7 @@ public class DynmapMarkerSets {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getMarkerSet(args[0].val(), t).setMinZoom(Static.getInt32(args[1], t));
+			CHDynmapStatic.getMarkerSet(args[0].val(), t).setMinZoom(ArgumentValidation.getInt32(args[1], t));
 			return CVoid.VOID;
 		}
 	}
@@ -597,7 +598,7 @@ public class DynmapMarkerSets {
 
 		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
-			CHDynmapStatic.getMarkerSet(args[0].val(), t).setMaxZoom(Static.getInt32(args[1], t));
+			CHDynmapStatic.getMarkerSet(args[0].val(), t).setMaxZoom(ArgumentValidation.getInt32(args[1], t));
 			return CVoid.VOID;
 		}
 	}
@@ -663,7 +664,7 @@ public class DynmapMarkerSets {
 			MCDynmapMarkerSet set = CHDynmapStatic.getMarkerSet(args[0].val(), t);
 			Construct showLabels = Static.resolveConstruct(args[1].val(), t);
 			if (showLabels instanceof CBoolean) {
-				set.setlabelIsShown(Static.getBoolean(showLabels, t));
+				set.setlabelIsShown(ArgumentValidation.getBooleanObject(showLabels, t));
 			} else if (showLabels instanceof CNull) {
 				set.setlabelIsShown(null);
 			} else {
