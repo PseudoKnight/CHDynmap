@@ -811,6 +811,11 @@ public class DynmapMarkers {
 		}
 
 		@Override
+		public Integer[] numArgs() {
+			return new Integer[]{3, 4};
+		}
+
+		@Override
 		public Mixed exec(Target t, Environment environment, Mixed... args) throws ConfigRuntimeException {
 			MCDynmapMarker marker = CHDynmapStatic.getMarker(args[0].val(), args[1].val(), t);
 			boolean isHTML;

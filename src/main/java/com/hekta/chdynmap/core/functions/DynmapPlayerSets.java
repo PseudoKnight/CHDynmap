@@ -212,7 +212,7 @@ public class DynmapPlayerSets {
 
 		@Override
 		public Integer[] numArgs() {
-			return new Integer[]{2};
+			return new Integer[]{1};
 		}
 
 		@Override
