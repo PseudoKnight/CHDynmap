@@ -20,7 +20,7 @@ public final class CHDynmap extends AbstractExtension {
 
 	public static final String DYNMAP_NAME = "Dynmap";
 
-	private static final Version VERSION = new SimpleVersion(1, 1, 6);
+	private static final Version VERSION = new SimpleVersion(1, 1, 7);
 
 	private static MCDynmapAPI _dynmap;
 
