@@ -307,7 +307,7 @@ public class DynmapPlayerSets {
 		@Override
 		public String docs() {
 			return "boolean {setID, [playerName]} Returns if a player is in the playerset."
-					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
+					+ " This will not throw a PlayerOfflineException (except from console), so the name must be exact.";
 		}
 
 		@Override
@@ -348,7 +348,7 @@ public class DynmapPlayerSets {
 		@Override
 		public String docs() {
 			return "void {setID, [playerName], boolean} Sets if a player is in the playerset."
-					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
+					+ " This will not throw a PlayerOfflineException (except from console), so the name must be exact.";
 		}
 
 		@Override

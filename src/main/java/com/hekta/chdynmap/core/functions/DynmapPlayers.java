@@ -259,7 +259,7 @@ public class DynmapPlayers {
 		@Override
 		public String docs() {
 			return "void {[playerName], otherPlayerName} Returns if the player can see the other player."
-					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
+					+ " This will not throw a PlayerOfflineException (except from console), so the name must be exact.";
 		}
 
 		@Override
@@ -302,8 +302,9 @@ public class DynmapPlayers {
 
 		@Override
 		public String docs() {
-			return "void {[playerName], message | playerName, message, [displayName]} Post message from player to web, if displayName is an empty string, it is not noticed."
-					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
+			return "void {[playerName], message | playerName, message, [displayName]} Post message from player to web,"
+					+ " if displayName is an empty string, it is not noticed."
+					+ " This will not throw a PlayerOfflineException (except from console), so the name must be exact.";
 		}
 
 		@Override
@@ -351,7 +352,7 @@ public class DynmapPlayers {
 		@Override
 		public String docs() {
 			return "void {[playerName]} Post a join message for player to web."
-					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
+					+ " This will not throw a PlayerOfflineException (except from console), so the name must be exact.";
 		}
 
 		@Override
@@ -392,7 +393,7 @@ public class DynmapPlayers {
 		@Override
 		public String docs() {
 			return "void {[playerName]} Post a quit message for player to web."
-					+ " This will not throw a PlayerOfflineException (exept from console), so the name must be exact.";
+					+ " This will not throw a PlayerOfflineException (except from console), so the name must be exact.";
 		}
 
 		@Override
