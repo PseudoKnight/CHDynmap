@@ -4,6 +4,7 @@ import com.hekta.chdynmap.annotations.CHDynmapConvert;
 import com.laytonsmith.abstraction.Implementation;
 import com.laytonsmith.abstraction.MCColor;
 import com.laytonsmith.PureUtilities.ClassLoading.ClassDiscovery;
+import com.laytonsmith.core.Static;
 
 /**
  *
@@ -28,14 +29,14 @@ public final class CHDynmapStaticLayer {
 						if (convertor == null) {
 							convertor = (CHDynmapConvertor) c.newInstance();
 						} else {
-							System.err.println("[CommandHelper] [CHDynmap] More than one CHDynmapConvertor for this server type was detected!");
+							Static.getLogger().severe("[CHDynmap] More than one CHDynmapConvertor for this server type was detected!");
 						}
 					} catch (IllegalAccessException | InstantiationException exception) {
-						System.err.println("[CommandHelper] [CHDynmap] Tried to instantiate the CHDynmapConvertor, but couldn't: " + exception.getMessage());
+						Static.getLogger().severe("[CHDynmap] Tried to instantiate the CHDynmapConvertor, but couldn't: " + exception.getMessage());
 					}
 				}
 			} else {
-				System.err.println("[CommandHelper] [CHDynmap] The CHCitizensConvertor " + c.getSimpleName() + " doesn't implement CHDynmapConvertor!");
+				Static.getLogger().severe("[CHDynmap] The CHCitizensConvertor " + c.getSimpleName() + " doesn't implement CHDynmapConvertor!");
 			}
 		}
 	}
